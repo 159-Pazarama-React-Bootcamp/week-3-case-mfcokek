@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Dashboard from "./views/Dashboard";
+import Home from "./views/Home";
+import Login from './views/Login'
+import Logout from "./views/Logout";
+import Register from "./views/Register";
 
 function App() {
+  const user_email = localStorage.getItem("@user_email")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Routes>
+        <Route path="/" element={<Home />}></Route>
+        {
+          user_email ? (
+            <>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/logout" element={<Logout />}></Route>
+            </>
+          ): (
+            <>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/register" element={<Register />}></Route>
+            </>
+          )
+        }
+        <Route path="*" element={<Navigate to="/dashboard" />}
+    />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
