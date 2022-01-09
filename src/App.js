@@ -12,6 +12,8 @@ function App() {
      <Routes>
         <Route path="/" element={<Home />}></Route>
         {
+          //daha önce giriş yaptıysayı kontrol ediyor giriş varsa login ve register'a yönlendirmiyor
+          //onun yerine dashboard'a yönlendiriyor
           user_email ? (
             <>
               <Route path="/dashboard" element={<Dashboard />}></Route>
