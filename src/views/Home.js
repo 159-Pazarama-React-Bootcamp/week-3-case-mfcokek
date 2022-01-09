@@ -16,6 +16,7 @@ export default function Home() {
                         Drax</b>❤️
                     </p>
                     <p className='arrow'>👇</p>
+                    //login sayfasına yönlendirme
                     <a className='buyme' href="/login">Buy me a Coffee</a>
                     
                 </div>
