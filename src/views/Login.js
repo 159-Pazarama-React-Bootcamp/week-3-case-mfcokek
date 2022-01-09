@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 function Login() {
+    //inputtan gelen değerler set edilir
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    
+    //api olarak internetten hazır api kullanıldı
     const onSubmitForm = (e) => {
         e.preventDefault()
         axios.post("https://wizardglass.backendless.app/api/users/login", {
             "login": email,
             "password": password
         }).then(() => {
+            //giriş yapma başarılı ise girişi localstorage da tutuyoruz
             window.localStorage.setItem("@user_email", email)
             window.location.href = "/dashboard"
         }).catch(() => {
