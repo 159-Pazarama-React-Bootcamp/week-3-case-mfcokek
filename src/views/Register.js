@@ -8,6 +8,7 @@ function Login() {
 
     const onSubmitForm = (e) => {
         e.preventDefault()
+        //parolanın eşitliği sorgulanır
         if(password !== password2 || !password){
             alert("parolalar eşleşmiyor")
             return
@@ -16,6 +17,7 @@ function Login() {
             "email" : email,  
             "password" : password  
         }).then(() => {
+            //register olduktan sonra giriş işlemi yapılır ve dashboarda yönledirilir
             window.localStorage.setItem("@user_email", email)
             window.location.href = "/dashboard"
         }).catch(() => {
