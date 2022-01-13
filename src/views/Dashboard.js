@@ -6,7 +6,6 @@ export default function Dashboard() {
     return (
         <div>
             <p>Hoşgeldin {user_email}</p>
-            //çıkış işlemine yönlendirilir
             <a href="/logout">çıkış yap</a>
         </div>
     )
